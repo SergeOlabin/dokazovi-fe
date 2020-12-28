@@ -57,3 +57,11 @@ h2,
 p {
   line-height: 2rem;
 }
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none !important;
+}

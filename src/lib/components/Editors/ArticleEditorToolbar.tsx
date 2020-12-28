@@ -1,63 +1,23 @@
 import React from 'react';
 import { Quill } from 'react-quill';
-import './editor.styles.css';
-import TestComp from './CustomModules/TestComp';
+import '../QuillEditor/editor.styles.css';
+import TestComp from '../QuillEditor/CustomModules/TestComp';
 
-export interface IQuillToolbarProps {
+export interface IArticleEditorToolbarProps {
   editor?: Quill;
 }
 
-// interface IExtraQuillField extends Quill {
-//   whitelist: string[];
-// }
-
-// const Font = Quill.import('formats/font') as IExtraQuillField;
-// const Size = Quill.import('formats/size') as IExtraQuillField;
-
-// Font.whitelist = [
-//   'arial',
-//   'comic-sans',
-//   'courier-new',
-//   'georgia',
-//   'helvetica',
-//   'lucida',
-// ];
-
-// Size.whitelist = ['extra-small', 'small', 'medium', 'large'];
-
-// Quill.register(Size, true);
-// Quill.register(Font, true);
-
-// function imageHandler() {
-//     const range = Quill.getSelection();
-//     const value = prompt('What is the image URL');
-//     if(value) {
-//       Quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
-//     }
-// };
-
-const QuillToolbar: React.FC<IQuillToolbarProps> = ({ editor }) => {
-  // useEffect(() => {
-  //   if (haRef) TestComp(haRef);
-  // }, [haRef]);
-  console.log(editor);
-
+const ArticleEditorToolbar: React.FC<IArticleEditorToolbarProps> = ({
+  editor,
+}) => {
   return (
     <div id="toolbar">
       <span className="ql-formats">
         <select className="ql-font">
           <option value="arial">Arial</option>
-          {/* <option value="comic-sans">Comic Sans</option>
-          <option value="courier-new">Courier New</option>
-          <option value="georgia">Georgia</option>
-          <option value="helvetica">Helvetica</option>
-          <option value="lucida">Lucida</option> */}
         </select>
         <select className="ql-size">
-          {/* <option value="extra-small">Size 1</option>
-          <option value="small">Size 2</option> */}
           <option value="medium">Size 1</option>
-          {/* <option value="large">Size 4</option> */}
         </select>
         <select
           className="ql-header"
@@ -112,12 +72,9 @@ const QuillToolbar: React.FC<IQuillToolbarProps> = ({ editor }) => {
         />
         <button title="Sub" type="button" className="ql-script" value="sub" />
         <button title="Blockquote" type="button" className="ql-blockquote" />
-        {/* <button title="Direction" type="button" className="ql-direction" /> */}
       </span>
       <span className="ql-formats">
         <select title="Align" className="ql-align" />
-        {/* <select title="Color" className="ql-color" /> */}
-        {/* <select title="Background" className="ql-background" /> */}
       </span>
       <span className="ql-formats">
         <button
@@ -141,23 +98,8 @@ const QuillToolbar: React.FC<IQuillToolbarProps> = ({ editor }) => {
           </span>
         </span>
       </span>
-      <button title="Link" type="button" className="ql-link" />
-
-      <button title="Video" type="button" className="ql-video" />
-      <span className="ql-formats">
-        {/* <button title="Formula" type="button" className="ql-formula" /> */}
-        {/* <button title="Code-block" type="button" className="ql-code-block" /> */}
-        <button title="Clean formatting" type="button" className="ql-clean" />
-      </span>
-      {/* {haRef
-        ? haRef.insertEmbed(
-            10,
-            'image',
-            'https://www.iguides.ru/upload/iblock/65b/65b7f6899b3232aab17f9dc0995eb094.jpg',
-          )
-        : null} */}
     </div>
   );
 };
 
-export default QuillToolbar;
+export default ArticleEditorToolbar;
